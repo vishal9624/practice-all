@@ -1,18 +1,14 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "4.23.0"
-    }
-  }
-}
-
 provider "aws" {
-  # Configuration options
-  region = "us-east-1"
+  shared_credentials_file = "~/.aws/credentials"
+  region                  = "${var.base["region"]}"
 }
 
-resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.b.id
-  acl    = "private"
+terraform {
+  backend "s3" {
+    bucket = "my_s3_bucket"
+    key    = "backend/state"
+    region = "us-east-1"
+    encrypt = true
+    shared_credentials_file = "~/.aws/credentials"
+  }
 }
