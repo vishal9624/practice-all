@@ -1,4 +1,4 @@
-resource "aws_s3_bucket_acl" "vishal_s3" {
-  bucket = "my"
+resource "aws_s3_bucket_acl" "vishal" {
+  bucket = "my-bucket"
   acl    = "private"
 }
