@@ -1,5 +1,5 @@
 resource "aws_s3_bucket_acl" "vishal-s3" {
-  bucket = aws_s3_bucket.main.id
+  bucket = "my"
   acl    = "private"
 
   tag = {
