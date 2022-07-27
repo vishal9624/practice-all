@@ -3,6 +3,15 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "main"
+    Name = "demo"
+  }
+}
+
+resource "aws_subnet" "public1" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "subnet1"
   }
 }
