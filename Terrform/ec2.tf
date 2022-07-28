@@ -1,8 +1,9 @@
-resource "aws_instance" "vishal" {
-  ami           = "ami-08d4ac5b634553e16"
-  instance_type = "t2.micro"
+resource "aws_subnet" "vishal_subnet" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "0.0.0.0/24"
+  availability_zone = "us-east-1"
 
   tags = {
-    Name = "for_you"
+    Name = "for_practice"
   }
 }
