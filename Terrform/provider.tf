@@ -9,4 +9,9 @@ terraform {
 
 provider "aws" {
   # Configuration options
+  region = "us-east-1"
+}
+
+resource "aws_s3_bucket" "my_s3_bukcet" {
+    bucket = "vishu-s3-bucket"
 }
